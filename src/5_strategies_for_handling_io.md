@@ -18,7 +18,7 @@ Now one way of accomplishing this is letting the OS take care of everything for 
 - OS level threads come with a rather large stack. If you have many tasks waiting simultaneously (like you would in a web-server under heavy load) you'll run out of memory pretty soon.
 - There are a lot of syscalls involved. This can be pretty costly when the number of tasks is high.
 - The OS has many things it needs to handle. It might not switch back to your thread as fast as you'd wish
-- The OS doesn't know which tasks to prioritize, and you might want to give som tasks a higher priority than others.
+- The OS doesn't know which tasks to prioritize, and you might want to give some tasks a higher priority than others.
 
 
 ## 2. Green threads
