@@ -35,20 +35,20 @@ The next step is that we register our interest in `read` events on that socket.
 
 **This is handled in one of three ways:**
 
-1. We tell the operating system that we're interested in `Read` events but we want
+A. We tell the operating system that we're interested in `Read` events but we want
 to wait for it to happen by `yielding` control over our thread to the OS. The OS
 then suspends our thread by storing the register state and switch to some other 
 thread. 
 
     _From our perspective this will be blocking our thread until we have data to read._
 
-2. We tell the operating system that we're interested in `Read` events but we
+B. We tell the operating system that we're interested in `Read` events but we
 just want a handle to a the task which we can `poll` to check if the event is
 ready or not. 
 
     _The OS will not suspend our thread, so this will not block our code_
 
-3. We tell the operating system that we are probably going to be interested in 
+C. We tell the operating system that we are probably going to be interested in 
 many events, but we want to subscribe to one event queue. When we `poll` this
 queue it will block until one or more event occurs. 
 
